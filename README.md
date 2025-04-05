@@ -1,4 +1,4 @@
-![Alt text](assets/screenshot.png)
+![Alt text](app/assets/screenshot.png)
 
 # 🐳 PHP + MySQL Task Manager (Mini Project)
 
