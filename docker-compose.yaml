@@ -1,0 +1,29 @@
+services:
+    apache:
+        container_name: apache_test
+        build: ./php
+        ports:
+          - "8080:80"
+        volumes:
+          - ./app:/var/www/html
+    mysql:
+        image: mysql:8.0
+        container_name: admin
+        environment:
+            MYSQL_ROOT_PASSWORD: rootAdmin
+            MYSQL_DATABASE: weekEnd
+            MYSQL_USER: user
+            MYSQL_PASSWORD: password
+        ports:
+          - "3306:3306"
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: admin_user
+        ports:
+          - "8081:80"
+        environment:
+            PMA_HOST: mysql
+            PMA_PASSWORD: rootAdmin
+        depends_on:
+            - mysql
